@@ -19,6 +19,8 @@ import JoinedGroupPage from './features/joined-group/JoinedGroupPage';
 import OnboardingRouter from './features/onboarding/OnboardingRouter';
 import { OnboardingProvider } from './features/onboarding/context/OnboardingContext';
 import MyProfilePage from './features/my-profile/MyProfilePage';
+import { AccessGateProvider, useAccessGate } from './features/access-gate/AccessGateContext';
+import AccessGateOverlay from './features/access-gate/AccessGateOverlay';
 
 function AppInner() {
   const [page, setPage] = useState('home');
@@ -101,11 +103,28 @@ function AppInner() {
   );
 }
 
+function GatedApp() {
+  const { hasAccess } = useAccessGate();
+  return (
+    <>
+      <div
+        className={hasAccess ? '' : 'blur-md pointer-events-none select-none'}
+        aria-hidden={!hasAccess}
+      >
+        <AppInner />
+      </div>
+      {!hasAccess && <AccessGateOverlay />}
+    </>
+  );
+}
+
 function App() {
   return (
-    <OnboardingProvider>
-      <AppInner />
-    </OnboardingProvider>
+    <AccessGateProvider>
+      <OnboardingProvider>
+        <GatedApp />
+      </OnboardingProvider>
+    </AccessGateProvider>
   );
 }
 

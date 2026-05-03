@@ -1,4 +1,14 @@
+import { useEffect, useState } from 'react';
+
 export function Hero({ onCreateProfile }) {
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    if (!showToast) return;
+    const t = setTimeout(() => setShowToast(false), 2000);
+    return () => clearTimeout(t);
+  }, [showToast]);
+
   return (
     <section className="pt-10 md:pt-16 pb-14 md:pb-16 px-2 md:px-3 text-center">
       <div className="max-w-[1200px] mx-auto flex flex-col items-center">
@@ -24,12 +34,30 @@ export function Hero({ onCreateProfile }) {
           <button type="button" onClick={onCreateProfile} className="btn-primary px-8 py-3.5">
             Create Profile
           </button>
-          <button type="button" className="btn-secondary px-8 py-3.5">
+          <button
+            type="button"
+            onClick={() => setShowToast(true)}
+            className="btn-secondary px-8 py-3.5"
+          >
             Create Experiences
           </button>
         </div>
 
       </div>
+
+      {showToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50
+                     bg-cirkle-card border border-cirkle-border-card
+                     text-white font-body font-semibold text-[14px]
+                     px-5 py-3 rounded-full shadow-card
+                     opacity-0 animate-[fadeUp_0.25s_ease_forwards]"
+        >
+          Coming soon
+        </div>
+      )}
     </section>
   );
 }
