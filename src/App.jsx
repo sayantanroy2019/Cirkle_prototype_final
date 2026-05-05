@@ -104,7 +104,8 @@ function AppInner() {
 }
 
 function GatedApp() {
-  const { hasAccess } = useAccessGate();
+  const { hasAccess, loading } = useAccessGate();
+  const showOverlay = !loading && !hasAccess;
   return (
     <>
       <div
@@ -113,7 +114,7 @@ function GatedApp() {
       >
         <AppInner />
       </div>
-      {!hasAccess && <AccessGateOverlay />}
+      {showOverlay && <AccessGateOverlay />}
     </>
   );
 }

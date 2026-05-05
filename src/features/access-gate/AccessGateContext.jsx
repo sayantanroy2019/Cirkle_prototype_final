@@ -1,33 +1,48 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { supabase } from '../../lib/supabaseClient';
+import { signOut as authSignOut } from '../../lib/auth';
 
 const AccessGateContext = createContext(null);
-const STORAGE_KEY = 'cirkle:access';
-
-function readStored() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-}
 
 export function AccessGateProvider({ children }) {
-  const [user, setUser] = useState(readStored);
+  const [session, setSession] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  function grant({ name, email }) {
-    const next = { name, email };
-    setUser(next);
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch {}
-  }
+  useEffect(() => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
 
-  function revoke() {
-    setUser(null);
-    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    let mounted = true;
+
+    supabase.auth.getSession().then(({ data }) => {
+      if (!mounted) return;
+      setSession(data.session);
+      setLoading(false);
+    });
+
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
+      setSession(newSession);
+      if (newSession) {
+        try { localStorage.removeItem('cirkle:pending'); } catch {}
+      }
+    });
+
+    return () => {
+      mounted = false;
+      sub.subscription.unsubscribe();
+    };
+  }, []);
+
+  async function signOut() {
+    await authSignOut();
   }
 
   return (
-    <AccessGateContext.Provider value={{ user, hasAccess: !!user, grant, revoke }}>
+    <AccessGateContext.Provider
+      value={{ session, hasAccess: !!session, loading, signOut }}
+    >
       {children}
     </AccessGateContext.Provider>
   );

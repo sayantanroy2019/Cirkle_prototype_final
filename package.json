@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/inter": "^5.2.8",
+    "@supabase/supabase-js": "^2.105.1",
     "@tailwindcss/vite": "^4.2.2",
     "lucide-react": "^1.8.0",
     "react": "^19.2.4",
