@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Sparkles, Clock } from 'lucide-react';
+import { Sparkles, Clock, AlertTriangle } from 'lucide-react';
 import { saveLead } from '../../lib/leads';
+import { useAccessGate } from './AccessGateContext';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PENDING_KEY = 'cirkle:pending';
@@ -23,6 +24,7 @@ function clearPending() {
 }
 
 export function AccessGateOverlay() {
+  const { authError, clearAuthError } = useAccessGate() || {};
   const [pending, setPending] = useState(readPending);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -63,6 +65,15 @@ export function AccessGateOverlay() {
     setError('');
   }
 
+  function handleDismissAuthError() {
+    if (clearAuthError) clearAuthError();
+    clearPending();
+    setPending(null);
+    setName('');
+    setEmail('');
+    setError('');
+  }
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-5">
       <div className="absolute inset-0 bg-cirkle-black/70 backdrop-blur-md" />
@@ -71,7 +82,12 @@ export function AccessGateOverlay() {
         className="relative w-full max-w-[420px] card-dark p-6 md:p-7
                    opacity-0 animate-[fadeUp_0.35s_ease_forwards]"
       >
-        {pending ? (
+        {authError ? (
+          <AuthErrorView
+            message={authError}
+            onTryAgain={handleDismissAuthError}
+          />
+        ) : pending ? (
           <PendingView
             name={pending.name}
             email={pending.email}
@@ -90,6 +106,36 @@ export function AccessGateOverlay() {
           />
         )}
       </div>
+    </div>
+  );
+}
+
+function AuthErrorView({ message, onTryAgain }) {
+  return (
+    <div className="text-center">
+      <div className="flex items-center justify-center mb-4">
+        <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-cirkle-yellow text-cirkle-text-dark">
+          <AlertTriangle size={26} aria-hidden="true" />
+        </span>
+      </div>
+
+      <h2 className="font-display text-[40px] md:text-[48px] leading-[0.92] uppercase text-white">
+        Link didn't work.
+      </h2>
+      <p className="mt-3 text-cirkle-text-light text-[14px] leading-relaxed">
+        {message}
+      </p>
+      <p className="mt-3 text-cirkle-text-muted text-[12px]">
+        Invite links can expire or only work once. Request access again and we'll send a fresh link.
+      </p>
+
+      <button
+        type="button"
+        onClick={onTryAgain}
+        className="btn-primary w-full px-6 py-3 mt-5"
+      >
+        Request a new link
+      </button>
     </div>
   );
 }
