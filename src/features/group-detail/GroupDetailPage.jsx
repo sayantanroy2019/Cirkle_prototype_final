@@ -6,27 +6,27 @@ import GroupEventDetails from './GroupEventDetails';
 import BottomNav from '../home/BottomNav/BottomNav';
 
 const GROUP = {
-  ownerImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
-  ownerAlt: 'Alex smiling outdoors',
-  name: "Alex's Group",
-  introText: 'Hey, I am going to Sunset Rooftop Party',
+  ownerImage: 'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?w=200&q=80',
+  ownerAlt: 'Arjun smiling outdoors',
+  name: "Arjun's Group",
+  introText: 'Hey, I am going to Bandra Rooftop Soirée',
   boys: 2,
   girls: 3,
   price: '₹499',
   event: {
-    title: 'Sunset Rooftop Party',
+    title: 'Bandra Rooftop Soirée',
     date: 'Sat, Apr 12',
     time: '8:00 PM',
-    location: 'Skyline Terrace, Downtown',
+    location: 'AER Lounge, Four Seasons, Mumbai',
     image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=200&q=80',
-    description: 'Live DJ sets, craft cocktails, stunning sunset views, and a vibrant crowd of like-minded people.',
+    description: 'Live DJ sets, craft cocktails, stunning skyline views over Worli Sea Face, and a vibrant crowd of like-minded people.',
   },
   members: [
-    { id: 1, name: 'Alex',  age: 24, isOwner: true,  image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80' },
-    { id: 2, name: 'Maya',  age: 26, isOwner: false, interests: 'Music, Foodie',        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80' },
-    { id: 3, name: 'Sam',   age: 22, isOwner: false, interests: 'Hiking, Photography',  image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80' },
-    { id: 4, name: 'Priya', age: 25, isOwner: false, interests: 'Yoga, Dance',          image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&q=80' },
-    { id: 5, name: 'Rahul', age: 23, isOwner: false, interests: 'Tech, Gaming',         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' },
+    { id: 1, name: 'Arjun',  age: 24, isOwner: true,  image: 'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?w=100&q=80' },
+    { id: 2, name: 'Ananya', age: 26, isOwner: false, interests: 'Music, Foodie',        image: 'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=100&q=80' },
+    { id: 3, name: 'Rohan',  age: 22, isOwner: false, interests: 'Hiking, Photography',  image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=100&q=80' },
+    { id: 4, name: 'Priya',  age: 25, isOwner: false, interests: 'Yoga, Dance',          image: 'https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=100&q=80' },
+    { id: 5, name: 'Rahul',  age: 23, isOwner: false, interests: 'Tech, Gaming',         image: 'https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=100&q=80' },
   ],
 };
 

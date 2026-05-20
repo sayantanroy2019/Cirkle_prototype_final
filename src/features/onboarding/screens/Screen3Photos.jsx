@@ -3,10 +3,10 @@ import OnboardingShell from '../shared/OnboardingShell';
 import { useOnboarding } from '../context/OnboardingContext';
 
 const STOCK = [
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80',
-  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&q=80',
-  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&q=80',
-  'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=300&q=80',
+  'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?w=300&q=80',
+  'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&q=80',
+  'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=300&q=80',
+  'https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=300&q=80',
 ];
 
 export function Screen3Photos({ onBack, onSkip, onNext }) {

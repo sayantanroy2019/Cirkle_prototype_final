@@ -9,54 +9,54 @@ import EventFindYourTribe from './EventFindYourTribe';
 import BottomNav from '../home/BottomNav/BottomNav';
 
 const EVENT = {
-  title: 'Sunset Rooftop Party',
-  location: 'Skyline Terrace, Downtown',
+  title: 'Bandra Rooftop Soirée',
+  location: 'AER Lounge, Four Seasons, Mumbai',
   date: 'Sat, Apr 12',
   time: '8:00 PM',
   price: 'Free',
   isLive: true,
   image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
-  about: `Join us for an unforgettable evening on the city's most iconic rooftop. Live DJ sets, craft cocktails, stunning sunset views, and a vibrant crowd of like-minded people. Whether you're new in town or looking for your next adventure — this is where connections happen. Join us or unintegrated ted linking an experience that more while remasing oorips, live proete don't down for attending people.`,
+  about: `Join us for an unforgettable evening on Mumbai's most iconic rooftop. Live DJ sets, craft cocktails, stunning skyline views over Worli Sea Face, and a vibrant crowd of like-minded people. Whether you're new in town or looking for your next adventure — this is where connections happen.`,
   attendees: {
     count: 24,
     overflow: 19,
     visible: [
-      { id: 1, name: 'Alex', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&q=80' },
-      { id: 2, name: 'Maya', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&q=80' },
-      { id: 3, name: 'Sam',  image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&q=80' },
-      { id: 4, name: 'Tina', image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=60&q=80' },
+      { id: 1, name: 'Arjun',  image: 'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?w=60&q=80' },
+      { id: 2, name: 'Ananya', image: 'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=60&q=80' },
+      { id: 3, name: 'Rohan',  image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=60&q=80' },
+      { id: 4, name: 'Ishita', image: 'https://images.unsplash.com/photo-1619436277100-90a4d96f8efc?w=60&q=80' },
     ],
   },
   venue: {
-    name: 'Skyline Terrace',
-    address: 'Skyline Terrace, Downtown, #262626',
+    name: 'AER Lounge',
+    address: 'AER, Four Seasons Hotel, Worli, Mumbai',
   },
   groups: [
     {
       id: 1,
-      name: 'Group Avabs',
+      name: "Arjun's Group",
       members: 2,
       avatars: [
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&q=80',
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&q=80',
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&q=80',
+        'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?w=40&q=80',
+        'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=40&q=80',
+        'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=40&q=80',
       ],
     },
     {
       id: 2,
-      name: 'Group Riders',
+      name: "Kabir's Group",
       members: 2,
       avatars: [
-        'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=40&q=80',
-        'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=40&q=80',
+        'https://images.unsplash.com/photo-1619436277100-90a4d96f8efc?w=40&q=80',
+        'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=40&q=80',
       ],
     },
   ],
   lineup: [
-    { id: 1, name: 'DJ Nova',   image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=100&q=80' },
-    { id: 2, name: 'Sara K',    image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&q=80' },
-    { id: 3, name: 'The Beats', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80' },
-    { id: 4, name: 'TBA',       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80' },
+    { id: 1, name: 'DJ Nucleya',     image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=100&q=80' },
+    { id: 2, name: 'Sanaya K',       image: 'https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=100&q=80' },
+    { id: 3, name: 'The Local Train',image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=100&q=80' },
+    { id: 4, name: 'TBA',            image: 'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=100&q=80' },
   ],
 };
 

@@ -32,7 +32,7 @@ export function Screen1Name({ onBack, onSkip, onNext }) {
           type="text"
           value={firstName}
           onChange={(e) => update({ firstName: e.target.value })}
-          placeholder="Alex"
+          placeholder="Arjun"
           className="w-full h-14 px-5 rounded-full bg-cirkle-input border border-cirkle-border font-body text-[16px] font-medium text-white placeholder:text-cirkle-text-muted caret-cirkle-yellow outline-none focus:border-cirkle-border-card transition-colors duration-200"
         />
       </div>
